@@ -12,9 +12,10 @@ using TicketManagement.Infrastructure.Db;
 namespace TicketManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(TicketManagementDbContext))]
-    partial class TicketManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180528192344_event_fields")]
+    partial class event_fields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,54 +40,6 @@ namespace TicketManagement.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Events","WriteModel");
-                });
-
-            modelBuilder.Entity("TicketManagement.Domain.Event.ReadModel.EventDetailsReadModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<int>("EventId");
-
-                    b.Property<float>("Latitude");
-
-                    b.Property<float>("Longitude");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Poster");
-
-                    b.Property<int>("SeatCount");
-
-                    b.Property<string>("VenueName");
-
-                    b.Property<string>("VideoUrl");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("EventsDetails","ReadModel");
-                });
-
-            modelBuilder.Entity("TicketManagement.Domain.Event.ReadModel.EventsListReadModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<int>("EventId");
-
-                    b.Property<bool>("IsSoldOut");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("VenueName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("EventsList","ReadModel");
                 });
 
             modelBuilder.Entity("TicketManagement.Domain.Sales.Order", b =>

@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Event\ReadModel\" />
     <Folder Include="Sales\ReadModel\" />
   </ItemGroup>
 

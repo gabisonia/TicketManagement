@@ -12,9 +12,10 @@ using TicketManagement.Infrastructure.Db;
 namespace TicketManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(TicketManagementDbContext))]
-    partial class TicketManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180528194200_event_details_read_model")]
+    partial class event_details_read_model
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

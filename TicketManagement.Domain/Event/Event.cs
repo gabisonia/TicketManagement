@@ -16,7 +16,7 @@ namespace TicketManagement.Domain.Event
             SeatCount = SeatCount;
             Poster = poster;
             VideoUrl = videoUrl;
-            Raise(new EventCreated(name, venue.Name, date, Id));
+            Raise(new EventCreated(this));
         }
         public string Name { get; private set; }
         public DateTime Date { get; private set; }
