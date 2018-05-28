@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using TicketManagement.Application.Commands;
 using TicketManagement.Application.Infrastructure;
+using TicketManagement.Application.Queries;
 using TicketManagement.Web.Models;
 
 namespace TicketManagement.Web.Controllers
@@ -20,17 +21,19 @@ namespace TicketManagement.Web.Controllers
 
         public IActionResult Index()
         {
-            var eventCreateCommand = new CreateEventCommand()
-            {
-                EventDate = DateTime.Now,
-                EventName = "test",
-                Latitude = 1,
-                Longitude = 2,
-                SeatCount = 23,
-                VenueName = "t"
-            };
-            _commandExecutor.Execute(eventCreateCommand);
-            return View();
+            //var eventCreateCommand = new CreateEventCommand()
+            //{
+            //    EventDate = DateTime.Now,
+            //    EventName = "test",
+            //    Latitude = 1,
+            //    Longitude = 2,
+            //    SeatCount = 23,
+            //    VenueName = "t"
+            //};
+            //_commandExecutor.Execute(eventCreateCommand);
+
+            var evetns = _queryExecutor.Execute<EventsListQuery, EventsListQueryResult>(new EventsListQuery());
+            return View(evetns.Data);
         }
 
         public IActionResult About()
