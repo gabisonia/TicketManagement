@@ -18,12 +18,12 @@ namespace TicketManagement.Domain.Sales
             this.Raise(new OrderPlaced(eventName, eventId, ticketCount));
         }
 
-        public string Email { get; }
+        public string Email { get; private set; }
         public int TicketCount { get; private set; }
         public float Price { get; private set; }
         public OrderStatus Status { get; private set; }
         public Event Event { get; private set; }
-        public DateTime CreateDate { get; }
+        public DateTime CreateDate { get; private set; }
 
         public void Cancel() => Status = OrderStatus.Canceled;
     }

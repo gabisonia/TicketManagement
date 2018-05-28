@@ -8,4 +8,9 @@
     <ProjectReference Include="..\TicketManagement.Shared\TicketManagement.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Event\ReadModel\" />
+    <Folder Include="Sales\ReadModel\" />
+  </ItemGroup>
+
 </Project>

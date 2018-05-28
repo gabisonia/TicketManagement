@@ -2,13 +2,20 @@
 {
     public class Venue
     {
-        public Venue(Address address, string name)
+        public Venue()
         {
-            Name = name;
-            Location = address;
+
         }
 
-        public string Name { get; set; }
-        public Address Location { get; set; }
+        public Venue(string name, float lng, float lat)
+        {
+            Longitude = lng;
+            Latitude = lat;
+            Name = name;
+        }
+
+        public string Name { get; private set; }
+        public float Longitude { get; private set; }
+        public float Latitude { get; private set; }
     }
 }

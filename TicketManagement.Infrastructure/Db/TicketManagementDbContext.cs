@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using TicketManagement.Domain.Event;
+using TicketManagement.Infrastructure.Db.Configurations;
 using TicketManagement.Infrastructure.EventDispatching;
 using TicketManagement.Shared;
 
@@ -11,6 +13,15 @@ namespace TicketManagement.Infrastructure.Db
         {
 
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+           
+            builder.ApplyConfiguration(new OrderTypeConfiguration());
+            builder.ApplyConfiguration<Event>(new EventTypeConfiguration());
+        }
     }
 
     public class UnitOfWork
@@ -20,8 +31,8 @@ namespace TicketManagement.Infrastructure.Db
 
         public UnitOfWork(TicketManagementDbContext kritosaurusDbContext, InternalDomainEventDispatcher internalDomainEventDispatcher)
         {
-            this._ticketManagementDbContext = kritosaurusDbContext;
-            this._internalDomainEventDispatcher = internalDomainEventDispatcher;
+            _ticketManagementDbContext = kritosaurusDbContext;
+            _internalDomainEventDispatcher = internalDomainEventDispatcher;
         }
 
         public void Save()

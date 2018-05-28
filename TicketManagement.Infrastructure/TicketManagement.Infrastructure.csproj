@@ -9,6 +9,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TicketManagement.Domain\TicketManagement.Domain.csproj" />
     <ProjectReference Include="..\TicketManagement.Shared\TicketManagement.Shared.csproj" />
   </ItemGroup>
 

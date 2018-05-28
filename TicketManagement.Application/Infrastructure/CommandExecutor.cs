@@ -11,6 +11,7 @@ namespace TicketManagement.Application.Infrastructure
         public CommandExecutor(TicketManagementDbContext db, UnitOfWork unitOfWork)
         {
             _db = db;
+            _unitOfWork = unitOfWork;
         }
 
         public CommandExecutionResult Execute(Command command)

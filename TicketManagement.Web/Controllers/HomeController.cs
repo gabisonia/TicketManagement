@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Diagnostics;
+using TicketManagement.Application.Commands;
 using TicketManagement.Application.Infrastructure;
 using TicketManagement.Web.Models;
 
@@ -18,7 +20,16 @@ namespace TicketManagement.Web.Controllers
 
         public IActionResult Index()
         {
-          
+            var eventCreateCommand = new CreateEventCommand()
+            {
+                EventDate = DateTime.Now,
+                EventName = "test",
+                Latitude = 1,
+                Longitude = 2,
+                SeatCount = 23,
+                VenueName = "t"
+            };
+            _commandExecutor.Execute(eventCreateCommand);
             return View();
         }
 
