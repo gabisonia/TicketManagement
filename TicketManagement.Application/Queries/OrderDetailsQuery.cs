@@ -13,6 +13,5 @@ namespace TicketManagement.Application.Queries
 
     public class OrderDetailsQueryResult
     {
-
     }
 }

@@ -1,0 +1,18 @@
+﻿@model TicketManagement.Application.Queries.EventDetailsQueryResult
+
+
+<div class="row">
+    <div class="col-md-3">
+        <img src="@Model.Poster" class="img-responsive"/>
+    </div>
+    <div class="col-md-3">
+        <h2>@Model.Name</h2>
+        <h3>@Model.VenueName</h3>
+        <h3>@Model.SeatCount</h3>
+        <p>@Model.Description</p>
+    </div>
+    <div class="col-md-12">
+        <iframe width="420" height="315"
+                src="@Model.VideoUrl" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>

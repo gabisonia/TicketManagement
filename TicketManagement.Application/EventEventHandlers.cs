@@ -30,7 +30,8 @@ namespace TicketManagement.Application
                 Longitude = @event.Event.Venue.Longitude,
                 Poster = @event.Event.Poster,
                 SeatCount = @event.Event.SeatCount,
-                VideoUrl = @event.Event.VideoUrl
+                VideoUrl = @event.Event.VideoUrl,
+                Description = @event.Event.Description
             };
 
             db.Set<EventDetailsReadModel>().Add(eventDetailsModel);

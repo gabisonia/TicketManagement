@@ -28,7 +28,10 @@ namespace TicketManagement.Web.Controllers
             //    Latitude = 1,
             //    Longitude = 2,
             //    SeatCount = 23,
-            //    VenueName = "t"
+            //    VenueName = "t",
+            //    Description = "test descrition",
+            //    Poster = "https://www.google.ge/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+            //    VideoUrl = "https://www.youtube.com/embed/wUTd35A7I"
             //};
             //_commandExecutor.Execute(eventCreateCommand);
 
@@ -36,11 +39,16 @@ namespace TicketManagement.Web.Controllers
             return View(evetns.Data);
         }
 
-        public IActionResult About()
+        public IActionResult Details(int id)
         {
-            ViewData["Message"] = "Your application description page.";
+            var eventDetails = _queryExecutor.Execute<EventDetailsQuery, EventDetailsQueryResult>(new EventDetailsQuery()
+            {
+                Id = id
+            });
+            if (!eventDetails.Success)
+                return NotFound();
 
-            return View();
+            return View(eventDetails.Data);
         }
 
         public IActionResult Contact()

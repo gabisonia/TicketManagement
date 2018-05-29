@@ -14,10 +14,11 @@ namespace TicketManagement.Application.Commands
         public int SeatCount { get; set; }
         public string Poster { get; set; }
         public string VideoUrl { get; set; }
+        public string Description { get; set; }
 
         public override CommandExecutionResult Execute()
         {
-            var @event = new Event(EventName, EventDate, new Venue(VenueName, Longitude, Latitude), SeatCount, Poster, VideoUrl);
+            var @event = new Event(EventName, EventDate, new Venue(VenueName, Longitude, Latitude), SeatCount, Poster, VideoUrl, Description);
 
             _db.Set<Event>().Add(@event);
 
