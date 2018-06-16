@@ -1,0 +1,46 @@
+﻿@model TicketManagement.Web.Models.Admin.CreateEventViewModel
+
+<h2>ღონისძიების შექმნა</h2>
+
+<form asp-controller="Admin" asp-action="CreateEvent" method="post">
+    <div class="form-group">
+        <label asp-for="EventName">ღონისძიების დასახელება</label>
+        <input type="text" class="form-control" asp-for="EventName" />
+    </div>
+    <div class="form-group">
+        <label asp-for="VenueName">ღონისძიების ადგილი</label>
+        <input type="text" class="form-control" asp-for="VenueName" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Longitude">ღონისძიების ადგილი Longitude</label>
+        <input type="text" class="form-control" asp-for="Longitude" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Latitude">ღონისძიების ადგილი Latitude</label>
+        <input type="text" class="form-control" asp-for="Latitude" />
+    </div>
+    <div class="form-group">
+        <label asp-for="EventDate">ჩატარების დრო</label>
+        <input type="date" class="form-control" asp-for="EventDate" />
+    </div>
+    <div class="form-group">
+        <label asp-for="SeatCount">ბილეთების რაოდენობა</label>
+        <input type="text" class="form-control" asp-for="SeatCount" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Poster">პოსტერი</label>
+        <input type="text" class="form-control" asp-for="Poster" />
+    </div>
+    <div class="form-group">
+        <label asp-for="VideoUrl">პოსტერი Video</label>
+        <input type="text" class="form-control" asp-for="VideoUrl" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">აღწერა</label>
+        <textarea class="form-control" asp-for="Description">
+        </textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">შექმნა</button>
+    </div>
+</form>

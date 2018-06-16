@@ -12,6 +12,7 @@ namespace TicketManagement.Domain.Sales
         {
             Email = email;
             TicketCount = ticketCount;
+            OrderNumber = Guid.NewGuid();
             Status = OrderStatus.Active;
             CreateDate = DateTime.Now;
             Event = new Event(eventId, eventName);
@@ -20,6 +21,7 @@ namespace TicketManagement.Domain.Sales
 
         public string Email { get; private set; }
         public int TicketCount { get; private set; }
+        public Guid OrderNumber { get; private set; }
         public float Price { get; private set; }
         public OrderStatus Status { get; private set; }
         public Event Event { get; private set; }

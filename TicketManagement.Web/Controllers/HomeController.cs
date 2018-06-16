@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Diagnostics;
-using TicketManagement.Application.Commands;
 using TicketManagement.Application.Infrastructure;
 using TicketManagement.Application.Queries;
 using TicketManagement.Web.Models;

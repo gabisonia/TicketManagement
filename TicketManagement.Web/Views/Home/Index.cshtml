@@ -1,10 +1,10 @@
 ﻿@model TicketManagement.Application.Queries.EventsListQueryResult
 
-<div class="list-group">
+<div class="list-group events-list">
     @foreach (var evnt in Model.Events)
     {
 
-        <a href="@Url.Action("Details","Home",new { id = evnt.Id })" class="list-group-item list-group-item-action flex-column align-items-start">
+        <a href="@Url.Action("Details","Home",new { id = evnt.Id })" class="list-group-item list-group-item-action flex-column align-items-start events-list-item">
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">@evnt.Name</h5>
                 <small>@evnt.Date</small>

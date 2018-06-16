@@ -33,3 +33,14 @@
         display: none;
     }
 }
+
+.events-list{
+    margin-top:20px;
+}
+.events-list-item{
+    margin-top:5px;
+}
+
+.event-details{
+margin-top:50px;
+}
