@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using TicketManagement.Application.Commands;
 using TicketManagement.Application.Infrastructure;
 using TicketManagement.Application.Queries;
 using TicketManagement.Web.Models;
+using TicketManagement.Web.Models.Home;
 
 namespace TicketManagement.Web.Controllers
 {
@@ -49,11 +51,26 @@ namespace TicketManagement.Web.Controllers
             return View(eventDetails.Data);
         }
 
-        public IActionResult Contact()
+        [HttpPost]
+        public IActionResult Buy(BuyTicketViewModel model)
         {
-            ViewData["Message"] = "Your contact page.";
+            var createOrderResult = _commandExecutor.Execute(new CreateOrderCommand()
+            {
+                Email = model.Email,
+                EventId = model.EventId,
+                TicketCount = model.TicketCount
+            });
 
-            return View();
+            return RedirectToAction("OrderDetails", new { orderId = createOrderResult.Data.Id });
+        }
+
+        public IActionResult OrderDetails(int orderId)
+        {
+            var details = _queryExecutor.Execute<OrderDetailsQuery, OrderDetailsQueryResult>(new OrderDetailsQuery()
+            {
+                Id = orderId
+            });
+            return View(details.Data);
         }
 
         public IActionResult Error()

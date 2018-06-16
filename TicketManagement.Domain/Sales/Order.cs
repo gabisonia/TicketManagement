@@ -16,7 +16,7 @@ namespace TicketManagement.Domain.Sales
             Status = OrderStatus.Active;
             CreateDate = DateTime.Now;
             Event = new Event(eventId, eventName);
-            this.Raise(new OrderPlaced(eventName, eventId, ticketCount));
+            this.Raise(new OrderPlaced(this));
         }
 
         public string Email { get; private set; }

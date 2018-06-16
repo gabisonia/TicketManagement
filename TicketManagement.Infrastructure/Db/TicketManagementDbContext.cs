@@ -22,6 +22,7 @@ namespace TicketManagement.Infrastructure.Db
             builder.ApplyConfiguration(new EventDetailsReadModelTypeConfiguration());
 
             builder.ApplyConfiguration(new OrderTypeConfiguration());
+            builder.ApplyConfiguration(new OrderReadModelTypeConfiguration());
             builder.ApplyConfiguration<Event>(new EventTypeConfiguration());
         }
     }

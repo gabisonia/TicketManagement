@@ -15,6 +15,7 @@ namespace TicketManagement.Application.Commands
         {
             var evnt = _db.Set<Domain.Event.Event>().Find(EventId);
             var order = new Order(Email, TicketCount, EventId, evnt.Name);
+            evnt.PlaceOrder(TicketCount);
             _db.Set<Order>().Add(order);
             _unitOfWork.Save();
             return Ok(DomainOperationResult.Create(order.Id));

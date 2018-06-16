@@ -12,9 +12,10 @@ using TicketManagement.Infrastructure.Db;
 namespace TicketManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(TicketManagementDbContext))]
-    partial class TicketManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180616134542_event_change")]
+    partial class event_change
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,22 +116,6 @@ namespace TicketManagement.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Orders","WriteModel");
-                });
-
-            modelBuilder.Entity("TicketManagement.Domain.Sales.ReadModel.OrderReadModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("EventName");
-
-                    b.Property<int>("OrderId");
-
-                    b.Property<int>("TicketCount");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("OrderReadModel","ReadModel");
                 });
 
             modelBuilder.Entity("TicketManagement.Domain.Event.Event", b =>

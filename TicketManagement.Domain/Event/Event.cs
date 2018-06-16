@@ -17,14 +17,23 @@ namespace TicketManagement.Domain.Event
             Poster = poster;
             VideoUrl = videoUrl;
             Description = description;
+            AvailableSeats = seatCount;
             Raise(new EventCreated(this));
         }
+
+        public void PlaceOrder(int ticketCount)
+        {
+            //TODO add count validation
+            AvailableSeats -= ticketCount;
+        }
+
         public string Name { get; private set; }
         public DateTime Date { get; private set; }
         public Venue Venue { get; private set; }
         public string Description { get; private set; }
         public int SeatCount { get; private set; }
         public string Poster { get; private set; }
+        public int AvailableSeats { get; private set; }
         public string VideoUrl { get; private set; }
     }
 }

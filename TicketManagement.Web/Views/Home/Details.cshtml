@@ -16,6 +16,13 @@
                 src="@Model.VideoUrl" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="col-md-12">
-
+        <form action="/Home/Buy" method="post">
+            <input name="Email" />
+            <input name="TicketCount" />
+            <input name="EventId" value="@Model.Id" type="hidden"/>
+            <button type="submit">
+                ყიდვა
+            </button>
+        </form>
     </div>
 </div>

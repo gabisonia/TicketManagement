@@ -4,14 +4,11 @@ namespace TicketManagement.Domain.Sales.Events
 {
     public class OrderPlaced : DomainEvent
     {
-        public OrderPlaced(string eventName, int eventId, int ticketCount)
+        public OrderPlaced(Order order)
         {
-            AggregateRootId = eventId;
-            EventName = EventName;
-            TicketCount = ticketCount;
+            Order = order;
         }
 
-        public string EventName { get; }
-        public int TicketCount { get; }
+        public Order Order { get; }
     }
 }
