@@ -5,27 +5,24 @@
     <div class="col-md-3">
         <img src="@Model.Poster" class="img-responsive" />
     </div>
-    <div class="col-md-3">
-        <h2>@Model.Name</h2>
-        <h3>@Model.VenueName</h3>
-        <h3>@Model.SeatCount</h3>
-        <p>@Model.Description</p>
-    </div>
-    <div class="col-md-12">
-        <iframe width="420" height="315"
-                src="@Model.VideoUrl" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="col-md-12">
-        
+    <div class="col-md-9">
+        <h2>დასახელება :@Model.Name</h2>
+        <h3>ადგილი : @Model.VenueName</h3>
+        <h3>ადგილების რაოდენობა: @Model.SeatCount</h3>
+
+        <p>აღწერა: @Model.Description</p>
+        <div class="row">
+            <div class="col-md-12">
+                <iframe width="420" height="315"
+                        src="@Model.VideoUrl" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buy">
+            ბილეთების ყიდვა
+        </button>
     </div>
 </div>
-
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buy">
-   ბილეთების ყიდვა
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="buy" tabindex="-1" role="dialog" aria-labelledby="buy" aria-hidden="true">
@@ -58,7 +55,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">დახურვა</button>
-               
+
             </div>
         </div>
     </div>
