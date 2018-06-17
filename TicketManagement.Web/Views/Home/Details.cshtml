@@ -16,13 +16,50 @@
                 src="@Model.VideoUrl" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="col-md-12">
-        <form action="/Home/Buy" method="post">
-            <input name="Email" />
-            <input name="TicketCount" />
-            <input name="EventId" value="@Model.Id" type="hidden"/>
-            <button type="submit">
-                ყიდვა
-            </button>
-        </form>
+        
+    </div>
+</div>
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buy">
+   ბილეთების ყიდვა
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="buy" tabindex="-1" role="dialog" aria-labelledby="buy" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ბილეთების შეძენა</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/Home/Buy" method="post">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label>ელ-ფოსტა</label>
+                            <input name="Email" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label>ბილეთების რაოდენობა</label>
+                            <input name="TicketCount" class="form-control" required />
+                        </div>
+                    </div>
+
+                    <input name="EventId" value="@Model.Id" type="hidden" />
+                    <button type="submit" class="btn btn-primary">
+                        ყიდვა
+                    </button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">დახურვა</button>
+               
+            </div>
+        </div>
     </div>
 </div>
